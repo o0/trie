@@ -1,0 +1,14 @@
+{
+  "name": "trie",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **.test.js"
+  },
+  "author": "Igor Alexeenko (alexeenko.igor@gmail.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
