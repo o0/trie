@@ -29,25 +29,26 @@ class TrieNode {
     }, this);
   }
 
-  _visitor(val, trace, root) {
+  _visitor(val, root) {
     if (root === null) {
-      return trace;
+      return [];
     }
+
+    const trace = [];
 
     if (root.isAWord) {
       trace.push(val);
     }
 
     for (const [nodeName, node] of Object.entries(root.children)) {
-      trace = visitor(`${val}${nodeName}`, trace, node);
+      trace.push(...this._visitor(`${val}${nodeName}`, node));
     }
 
     return trace;
   }
 
   lookup(val) {
-    const nodeToLookupFrom = this.get(val);
-    return visitor(val, trace, nodeToLookupFrom);
+    return this._visitor(val, this.get(val));
   }
 }
 
